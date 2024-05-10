@@ -1,102 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Yuexiang Zhai's Homepage</title>
-
-    <link href="res/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
-      .fulljustify {
-      text-align:justify;
-      }
-      .fulljustify:after {
-        content: "";
-        display: inline-block;
-        width: 100%;
-      }
-      #tagline {
-        height: 80px;
-        overflow: hidden;
-        line-height: 80px; /* vert-center */
-      }
-      .hover {
-      position: relative;
-      display: inline-block;
-      border-bottom: 1px dotted black;
-      /*max-width: 230px;*/
-      /*top: 50px;
-      left: 50px;*/
-      }
-
-      .tooltip {
-      /* hide and position tooltip */
-      top: 5px;
-      left: 193px;
-      background-color: yellow;
-      color: black;
-      border-radius: 5px;
-      white-space: nowrap;
-      opacity: 0;
-      position: absolute;
-   /*   -webkit-transition: opacity 0.5s;
-      -moz-transition: opacity 0.5s;
-      -ms-transition: opacity 0.5s;
-      -o-transition: opacity 0.5s;*/
-      /*transition: opacity 0.5s;*/
-      }
-
-      .hover:hover .tooltip {
-      /* display tooltip on hover */
-      opacity: 1;
-      }
-
-      body{
-      margin: 50px auto;
-      /*margin-left: 150px;*/
-      /*margin-right: 150px;*/
-      width: auto;
-      max-width: 830px;
-      font-family: Palatino;
-      }
-      blockquote {
-      border-left: 5px solid #3607F2;
-      }
-    </style>
-    <!-- Bootstrap -->
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-
-  <div class="container">
-  <body>
-
-    <h3> <div class="hover"> Yuexiang
-    <div class="tooltip"> People also call him Simon.
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Webpage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to My Personal Webpage</h1>
+        </header>
+        <section>
+            <h2>About Me</h2>
+            <p>
+                Hello, my name is <span class="hover">Yuexiang Zhai
+                <span class="tooltip">People also call me Simon.</span>
+                </span>. I am a PhD student in Computer Science.
+            </p>
+        </section>
+        <section>
+            <h2>Contact Information</h2>
+            <p>Email: <a href="mailto:example@example.com">example@example.com</a></p>
+        </section>
     </div>
-    </div> Zhai </h3>
-    <p> Email: simonzhai at berkeley dot edu / ysz at berkeley dot edu </br>
-    <a href="https://scholar.google.com/citations?user=78WTKm4AAAAJ&hl=en" target="_blank"> Google Scholar </a>
-    <hr>
-    <h4> <b>  </b> <font size="3"></font></h4>
-    <p>  Yuexiang Zhai is a PhD student in the EECS department at UC Berkeley advised by <a href="https://people.eecs.berkeley.edu/~yima/"> Prof. Yi Ma</a> and <a href="https://people.eecs.berkeley.edu/~svlevine/"> Prof. Sergey Levine</a>.  This website is being constructed inactively<s> because the owner is very lazy</s>.
-	    <!-- publications come here -->
-
-    <hr>
-	    <!-- publications come here -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="res/js/bootstrap.min.js"></script>
-
-  </div>
-  </body>
+</body>
 </html>
-
