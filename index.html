@@ -1,28 +1,120 @@
 <!DOCTYPE html>
+
+
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Webpage</title>
+    <title>Yuexiang Zhai's Home Page</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Welcome to My Personal Webpage</h1>
-        </header>
+        <h1><span class="hover">Yuexiang
+            <span class="tooltip">Feel free to call me Simon.</span>
+            </span> Zhai</h1>
         <section>
-            <h2>About Me</h2>
+            <h3>Bio</h3>
             <p>
-                Hello, my name is <span class="hover">Yuexiang Zhai
-                <span class="tooltip">People also call me Simon.</span>
-                </span>. I am a PhD student in Computer Science.
+                I am a phd student at Berkeley EECS,
+                advised by <a href="https://people.eecs.berkeley.edu/~yima/">Prof. Yi Ma</a>
+                and <a href="https://people.eecs.berkeley.edu/~svlevine/">Prof. Sergey Levine</a>.
+                I am also <span class="hover">affliated
+                    <span class="tooltip">Because of my advisors, I have nothing to do with it
+                        (except for having a seat at the beautiful Berkeley Way West office).</span>
+                    </span> with <a href="https://bair.berkeley.edu/">BAIR</a>.
+                I obtained an MS degree from Columbia University with <a href="https://www.columbia.edu/~jw2966/">Prof. John Wright</a>
+                and a BS degree in <span class="hover">Math & Applied Math
+                    <span class="tooltip">It is only one major,
+                        I do not know why Zhejiang University (ZJU) created a major named
+                        "Math & Applied Math".
+                         <s>Perhaps ZJU is trying suggested that some math majors are not applicable?</s></span></span>
+                         from <span class="hover">Zhejiang University
+                    <span class="tooltip">Not from the Chu Kochen Honors College,
+                         because I did pretty poorly during undergrad.</span></span>,
+
             </p>
         </section>
         <section>
-            <h2>Contact Information</h2>
-            <p>Email: <a href="mailto:example@example.com">example@example.com</a></p>
+            <h3>Contacts</h3>
+            <ul>
+                <li>Email: simonzhai at berkeley dot edu</li>
+                <li><a href="https://twitter.com/simon_zhai">Twitter / X</a></li>
+                <li>Phone: <span class="hover">+1 (123) 5813 2134
+                    <span class="tooltip">This is not my number, it is from the Fibonacci Sequence.
+                         And please do not try to call it. </span></span></li>
+            </ul>
+        </section>
+        <section>
+            <h3>Research</h3>
+            <ul>
+                <li>Past experience: My past research spans different topics in <a href="https://en.wikipedia.org/wiki/Compressed_sensing#Overview">compressive sensing</a>,
+                    reinforcement learning, and large models. </li>
+                <li>Interest: I am interested in anything that
+                    <span class="hover">I don't understand yet<span class="tooltip">
+                    Such as (1) how does the universe works; (2) what are my cats talking. </span></span>. </li>
+                <li>Current focus: I am currently focus on <span class="hover">things<span class="tooltip">
+                    a.k.a large multimodal models (purely personal opinions, feel free to debate me). </span></span>
+                    things that will work in the
+                    <span class="hover">near future<span class="tooltip">
+                        It means \leq 5 years. </span></span>. </li>
+            </ul>
+
+        </section>
+        <section>
+            <h3>Publications</h3>
+            Please refer to my <a href="https://scholar.google.com/citations?user=78WTKm4AAAAJ&hl=en">Google Scholar</a>
+            profile for my <span class="hover">full publication
+                <span class="tooltip">Google scholar is a much better organizer than me</span></span> list.
         </section>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        var tooltips = document.querySelectorAll('.hover');
+        tooltips.forEach(function(tooltip) {
+            tooltip.addEventListener('mouseover', function() {
+                var tip = this.querySelector('.tooltip');
+                // Ensure the tooltip is initially positioned in the middle.
+                tip.style.left = '50%';
+                tip.style.right = 'auto';
+                tip.style.transform = 'translateX(-50%)';
+
+                // Allow CSS transitions to finish before recalculating
+                setTimeout(() => {
+                    var rect = tip.getBoundingClientRect();
+
+                    if (rect.left < 0) { // Check if the tooltip overflows on the left
+                        tip.style.left = '0px'; // Align to the left edge
+                        tip.style.transform = 'translateX(0%)';
+                    }
+                    if (rect.right > window.innerWidth) { // Check if the tooltip overflows on the right
+                        tip.style.left = 'auto';
+                        tip.style.right = '0px'; // Align to the right edge
+                        tip.style.transform = 'translateX(0%)';
+                    }
+                }, 10); // Short delay to allow CSS transitions
+            });
+        });
+    });
+        document.addEventListener('DOMContentLoaded', function () {
+        var button = document.getElementById('toggleButton');
+        var section = document.getElementById('toggleSection');
+
+        button.addEventListener('click', function () {
+            // Toggle the display CSS property
+            if (section.style.display === 'none') {
+                section.style.display = 'block';
+                button.textContent = 'Hide Information'; // Change button text
+            } else {
+                section.style.display = 'none';
+                button.textContent = 'Show More Information'; // Reset button text
+            }
+        });
+    });
+    </script>
 </body>
+
 </html>
