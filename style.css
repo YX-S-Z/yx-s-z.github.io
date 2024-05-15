@@ -10,7 +10,6 @@ body {
 .container {
     width: 60%;
     margin: auto;
-    overflow: hidden;
 }
 
 header {
@@ -33,6 +32,11 @@ section {
     margin: 0px 0;
 }
 
+a {
+    color: #4485e1; /* This is a deep blue color, similar to the default blue of hyperlinks */
+    text-decoration: none; /* Optional: removes the underline from links */
+}
+
 .hover {
     position: relative;
     display: inline-block;
@@ -52,7 +56,7 @@ section {
     text-align: justify;
     top: 100%;
     left: 50%;
-    margin-left: -50px;
+    margin-left: -40px;
     opacity: 0;
     transition: opacity 0.5s;
     font-size: 14px;
@@ -66,17 +70,48 @@ section {
 
 .hidden-section {
     display: none;
-    padding: 10px;
-    border: 1px solid #ccc;
-    margin-top: 10px;
-    background-color: #f9f9f9;
+    padding: 0px;
+    border: 0px solid #f4f4f4;
+    margin-top: 20px;
+    background-color: #f4f4f4;
 }
 
 button {
-    padding: 10px 20px;
+    padding: 5px 5px;
+    position: absolute;
     cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #d4d4d4;
+    color: rgb(0, 0, 0);
     border: none;
     border-radius: 5px;
+}
+
+.publication {
+    border-left: 5px solid #7e7e7e; /* Adjust color as needed */
+    padding-left: 10px; /* Adds spacing between the border and text */
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    text-align: justify; /* Justifying the text for better readability */
+    line-height: 1.2; /* Adjusting the line height to make lines closer */
+}
+
+.publication p {
+    margin-bottom: 2px; /* Space between paragraphs */
+    line-height: 1.6; /* Adjusts the height of lines within paragraphs for readability */
+}
+
+.publication p:last-child {
+    margin-bottom: 0; /* No extra space at the bottom of the last paragraph */
+}
+
+.publication p a {
+    margin-right: 10px; /* Adds space on the right of each link */
+}
+
+.publication p a:last-child {
+    margin-right: 0; /* Ensures the last link in any paragraph does not have extra space on the right */
+}
+
+.title {
+    font-style: italic;
 }

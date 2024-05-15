@@ -1,30 +1,42 @@
-document.addEventListener('DOMContentLoaded', function () {
-    var tooltips = document.querySelectorAll('.hover');
-    tooltips.forEach(function(tooltip) {
-        tooltip.addEventListener('mouseover', function() {
-            var tip = this.querySelector('.tooltip');
-            // Ensure the tooltip is initially positioned in the middle.
-            tip.style.left = '50%';
-            tip.style.right = 'auto';
-            tip.style.transform = 'translateX(-50%)';
+document.addEventListener('DOMContentLoaded', function() {
+    var hoverElements = document.querySelectorAll('.hoverable'); // Adjust class as needed
 
-            // Allow CSS transitions to finish before recalculating
-            setTimeout(() => {
-                var rect = tip.getBoundingClientRect();
+    hoverElements.forEach(function(element) {
+        element.addEventListener('mouseenter', function() {
+            var tooltip = document.querySelector('.tooltip'); // Assuming there's one tooltip for all hoverable elements
+            tooltip.textContent = element.getAttribute('data-tooltip'); // Set tooltip text
+            tooltip.style.visibility = 'visible';
+            tooltip.style.opacity = '1';
 
-                if (rect.left < 0) { // Check if the tooltip overflows on the left
-                    tip.style.left = '0px'; // Align to the left edge
-                    tip.style.transform = 'translateX(0%)';
-                }
-                if (rect.right > window.innerWidth) { // Check if the tooltip overflows on the right
-                    tip.style.left = 'auto';
-                    tip.style.right = '0px'; // Align to the right edge
-                    tip.style.transform = 'translateX(0%)';
-                }
-            }, 10); // Short delay to allow CSS transitions
+            var elementRect = element.getBoundingClientRect();
+            var tooltipWidth = 200; // Explicit width of the tooltip
+
+            // Initial left position to try centering the tooltip relative to the element
+            var leftPos = elementRect.left + (elementRect.width / 2) - (tooltipWidth / 2) + window.scrollX;
+
+            // Ensure the tooltip does not overflow the right side of the viewport
+            if (leftPos + tooltipWidth > window.innerWidth) {
+                leftPos = window.innerWidth - tooltipWidth - 150; // Adjust so there is a small margin on the right
+            }
+
+            // Ensure the tooltip does not overflow the left side of the viewport
+            if (leftPos < 0) {
+                leftPos = 10; // Maintain a minimum left margin if too far to the left
+            }
+
+            tooltip.style.left = `${leftPos}px`;
+            tooltip.style.top = `${elementRect.bottom + window.scrollY + 5}px`; // Position below the element with a small gap
+        });
+
+        element.addEventListener('mouseleave', function() {
+            var tooltip = document.querySelector('.tooltip'); // Assuming one tooltip element
+            tooltip.style.visibility = 'hidden';
+            tooltip.style.opacity = '0';
         });
     });
 });
+
+
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -33,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     button.addEventListener('click', function () {
         // Toggle the display CSS property
-        if (section.style.display === 'none') {
+        if (section.style.display === 'none' || section.style.display === '') {
             section.style.display = 'block';
             button.textContent = 'Hide Information'; // Change button text
         } else {
