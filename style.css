@@ -115,3 +115,7 @@ button {
 .title {
     font-style: italic;
 }
+
+.red-text {
+    color: #ff0800;
+}
